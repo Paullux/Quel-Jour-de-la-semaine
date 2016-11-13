@@ -8,4 +8,4 @@ $ chmod +x Quel-Jour.sh
 $ ./Quel-Jour.sh
 
 Le script doit être exécuter dans un bash.
-Celui de linux, marche aussi dans le bash Ubuntu de Windows 10.
+Celui de linux, marche aussi le bash Ubuntu de Windows 10.
