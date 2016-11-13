@@ -1,12 +1,21 @@
 #!/bin/bash
 clear #Pour y voir plus clair.
 
+# déclaration dune fonction
+Divisible() 
+{ 
+        diva=$(echo "$1/$2" | bc -l)
+        let "divb = $1/$2"
+        divb=$(echo "$divb*1.00000000000000000000" | bc)
+        echo "$(echo "$diva==$divb" | bc)" #Permet de vérifier si le paramètre 1 est un multiple du paramètre 2
+}
+
 echo "Vous voulez savoir le jour d'une date donnée à partir du 1er Janvier 1900, ce petit script est fait pour vous"
 echo ""
 echo "On va vous demander d'abord le jour, puis le mois et finalement l'année (en chiffre) :"
 
 j=0 #Initialisation d'une Variable.
-TESTinit=$(echo "$j == 1544654210" | bc) #Initialisation d'un opération logique qui sert à savoir si la personne va rentrer un jour existant.
+TESTinit=$(echo "$j == 1" | bc) #Initialisation d'un opération logique qui sert à savoir si la personne va rentrer un jour existant.
 
 until [ $TESTinit -eq 1 ] #Tant que le jour rentré n'existe pas".
 do
@@ -46,22 +55,13 @@ done
 
 case "$m" in #Test si le mois a différente valeur.
         "2" | "02" ) #Si le mois vaut 2.
-        divaa=$(echo "$a/100" | bc -l)
-        let "divab = $a/100"
-        divab=$(echo "$divab*1.00000000000000000000" | bc)
-        TESTa=$(echo "$divaa==$divab" | bc) #Permet de vérifier si l'année est un multiple de 100
+        TESTa=$(Divisible $a 100) #Permet de vérifier si l'année est un multiple de 100
     
-        divba=$(echo "$a/400" | bc -l)
-        let "divbb = $a/400"
-        divbb=$(echo "$divbb*1.00000000000000000000" | bc)
-        TESTb=$(echo "$divba!=$divbb" | bc) #Permet de vérifier si l'année n'est pas un multiple de 400
+        TESTb=$(Divisible $a 400) #Permet de vérifier si l'année n'est pas un multiple de 400
         
-        divca=$(echo "$a/4" | bc -l)
-        let "divcb = $a/4"
-        divcb=$(echo "$divcb*1.00000000000000000000" | bc)
-        TESTc=$(echo "$divca==$divcb" | bc) #Permet de vérifier si l'année est un multiple de 4
-        
-        if [ $TESTa -eq 1 ] && [ $TESTb -eq 1 ] #Sert à déterminer si durant l'année rentré il y a eu un 29 février
+        TESTc=$(Divisible $a 4) #Permet de vérifier si l'année est un multiple de 4
+                     
+        if [ $TESTa -eq 1 ] && [ $TESTb -eq 0 ] #Sert à déterminer si durant l'année rentré il y a eu un 29 février
         then
             vnf="28" 
         elif [ $TESTc -eq 1 ]
@@ -106,39 +106,27 @@ bixe=$(echo "$bix*1.00000000000000000000" | bc)
 for ((i = 1900 ; i <= $a ; i += 4))
 do
     let "z=$i"
-    divaa=$(echo "$z/100" | bc -l)
-    let "divab = $z/100"
-    divac=$(echo "$divab*1.00000000000000000000" | bc)
-    TESTa=$(echo "$divaa==$divac" | bc)
+    
+    TESTa=$(Divisible $z 100)
 
-    
-    divba=$(echo "$z/400" | bc -l)
-    let "divbb = $z/400"
-    divbc=$(echo "$divbb*1.00000000000000000000" | bc)
-    TESTb=$(echo "$divba!=$divbc" | bc)
-    
-    if [ $TESTa -eq 1 ] && [ $TESTb -eq 1 ]
+    TESTb=$(Divisible $z 400)
+  
+    if [ $TESTa -eq 1 ] && [ $TESTb -eq 0 ]
     then
         let "bix = $bix-1"
     fi
 done
 
-divaa=$(echo "$a/100" | bc -l)
-let "divab = $a/100"
-divab=$(echo "$divab*1.00000000000000000000" | bc)
-TESTa=$(echo "$divaa!=$divab" | bc)
+TESTa=$(Divisible $a 100)
     
-divba=$(echo "$a/400" | bc -l)
-let "divbb = $a/400"
-divbb=$(echo "$divbb*1.00000000000000000000" | bc)
-TESTb=$(echo "$divba==$divbb" | bc)
+TESTb=$(Divisible $a 400)
 
 TEST=$(echo "$ann==$bixe" | bc)
 
 if [ $TESTb -eq 1 ]
 then
     let "bix = $bix-1"
-elif [ $TESTa -eq 1 ] && [ $TEST -eq 1 ] && [ $m -lt 3 ]
+elif [ $TESTa -eq 0 ] && [ $TEST -eq 1 ] && [ $m -lt 3 ]
 then
     let "bix = $bix-1"
 fi
