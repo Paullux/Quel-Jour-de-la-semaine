@@ -1,5 +1,5 @@
 # Quel-Jour-de-la-semaine
-Un simple script bash pour donner le jour de la semaine d'une date donnée
+Un simple script bash pour donner le jour de la semaine d'une date donnée.
 
 Pour utiliser le script téléchargez-le et entrez les commandes suivantes (sans le $) : 
 
