@@ -24,7 +24,7 @@ Marche aussi sur Android :
 
 1 - Télécharger Termux sur le PlayStore
 
-2 - Exécuter les commande suivante :
+2 - Exécuter les commande suivante dans Termux :
 
 $ apt-get install git
 
@@ -37,3 +37,9 @@ $ cd Quel-Jour-de-la-semaine
 $ chmod +x Quel-Jour.sh
 
 $ bash Quel-Jour.sh
+
+(pour info la commande pour arrêter Termux est :
+
+$ exit
+
+à valider après par entrée)
