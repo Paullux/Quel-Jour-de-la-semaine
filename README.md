@@ -16,7 +16,7 @@ Le script doit être exécuter dans un bash, celui de linux (un terminal ou une 
 
 Marche aussi le bash Ubuntu de Windows 10 (même commande et au cas où, pour obtenir git et bc, un coup de
 
-'sudo apt-get install git bc'
+$ sudo apt-get install git bc
 
 sera du plus belle effet).
 
