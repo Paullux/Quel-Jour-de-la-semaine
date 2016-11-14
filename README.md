@@ -22,9 +22,9 @@ sera du plus belle effet).
 
 Marche aussi sur Android :
 
-1 - Télécharger Termux sur le PlayStore
+1 - Téléchargez Termux sur le PlayStore
 
-2 - Exécuter les commande suivante dans Termux :
+2 - Exécutez les commandes suivantes dans Termux :
 
 $ apt-get install git
 
