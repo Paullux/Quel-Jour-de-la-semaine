@@ -10,8 +10,6 @@ $ cd Quel-Jour-de-la-semaine
 
 $ chmod +x Quel-Jour.sh
 
-$ ./Quel-Jour.sh
-
 Le script doit être exécuter dans un bash, celui de linux (un terminal ou une console).
 
 Marche aussi sur le bash Ubuntu de Windows 10 (même commande et au cas où, pour obtenir git et bc, un coup de
@@ -33,8 +31,6 @@ $ apt-get install bc
 $ git clone https://github.com/Paullux/Quel-Jour-de-la-semaine/
 
 $ cd Quel-Jour-de-la-semaine
-
-$ chmod +x Quel-Jour.sh
 
 $ bash Quel-Jour.sh
 
