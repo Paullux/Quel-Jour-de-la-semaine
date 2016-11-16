@@ -8,7 +8,7 @@ $ git clone https://github.com/Paullux/Quel-Jour-de-la-semaine/
 
 $ cd Quel-Jour-de-la-semaine
 
-$ chmod +x Quel-Jour.sh
+$ ./Quel-Jour.sh
 
 Le script doit être exécuter dans un bash, celui de linux (un terminal ou une console).
 
